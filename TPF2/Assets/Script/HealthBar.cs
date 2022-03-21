@@ -10,12 +10,8 @@ public class HealthBar : MonoBehaviour
     public Image fill;
     
 
-    public void Start()
-    {
-        
-    }
 
-    public void SetMaxHealth (int health)
+    public void SetMaxHealth (int health) //Indicamos la vida máxima y la vinculamos al gradient de color. 
     {
         slider.maxValue = health;
         slider.value = health;
@@ -23,7 +19,7 @@ public class HealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(1f);
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(int health) // Indicamos como es la vida actual y comop obtenerla. 
     {
         slider.value = health;
 

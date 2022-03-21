@@ -6,7 +6,7 @@ public class minimap : MonoBehaviour
 {
 
     public Transform player;
-
+    //Con este script indico al minimapa creado con una 2nda camara que siga al jugador y no lo pierda del centro. 
     void LateUpdate()
     {
         Vector3 newPosition = player.position;

@@ -9,7 +9,7 @@ public class RotationSniper : MonoBehaviour
 
 
 
-    // Update is called once per frame
+  //Aquí indicamos que si el juego no está pausado se rote según el movimiento vertical del ratón. Si nó, si el juego está pausado que no se mueva. 
     void Update()
     {
         if (!PauseMenu.GameIsPaused)

@@ -48,7 +48,7 @@ public class DestroyMisil : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Enemy"))
         {
             
-            gameManagerScript.UpdateEn();
+            gameManagerScript.UpdateEn(); //Enlaza el script gamemanager para que cuando el misil toca un enemy añada un punto
             Explode();
             Destroy(gameObject);
             Destroy(otherCollider.gameObject);
@@ -58,7 +58,7 @@ public class DestroyMisil : MonoBehaviour
         {
             Selecction.PlayOneShot(Select, 1f);
            
-            gameManagerScript.UpdateObject();
+            gameManagerScript.UpdateObject(); //Enlaza el script gamemanager para que cuando el misil toca un objetivo añada un punto
             Explode();
             Destroy(gameObject);
             Destroy(otherCollider.gameObject);
@@ -68,12 +68,12 @@ public class DestroyMisil : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Life"))
         {
             Selecction.PlayOneShot(Select, 1f);
-            playerhealthscript.HealDamage(70);
+            playerhealthscript.HealDamage(70); //Enlaza el script Player health para que cuando el misil toca un life recupere vida
             Destroy(otherCollider.gameObject);
         }
     }
 
-    //Courrutina de que has ganado
+    
     
 
     //Función de particulas para la destrucción de la bala

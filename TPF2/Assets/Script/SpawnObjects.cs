@@ -9,13 +9,13 @@ public class SpawnObjects : MonoBehaviour
     private float OstartTime = 2f;
     private float OrepeatRate = 50f;
     private float OSpawnLim = 10;
-    // Start is called before the first frame update
+   
     void Start()
     {
         InvokeRepeating("ObjectPrefab", OstartTime, 0);
     }
 
-    //Función de Invoke de los Objetos
+
     void ObjectPrefab()
     {
 

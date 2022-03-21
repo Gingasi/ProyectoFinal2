@@ -9,6 +9,6 @@ public class MoveForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime); //Hace que el misil esté siempre en movimiento una vez instanciado
     }
 }

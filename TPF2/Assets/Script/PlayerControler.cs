@@ -32,7 +32,7 @@ public class PlayerControler : MonoBehaviour
 
     }
 
-    void Movement()
+    void Movement() //Controles verticales y horizontales según el input get axis. Funciona con wsad y con las flechas. 
     {
 
         if (!PauseMenu.GameIsPaused)
@@ -49,7 +49,7 @@ public class PlayerControler : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 0f; //Si no es que el juego está en pausa por lo tanto todo se para. 
             
         }
 

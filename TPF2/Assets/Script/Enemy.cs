@@ -12,17 +12,16 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        //enemyRigidbody = GetComponent<Rigidbody>();
+       
         player = GameObject.Find("PlayerTank");
     }
 
     void Update()
     {
-        //Vector3 direction = (player.transform.position - transform.position).normalized;
-        //enemyRigidbody.AddForce(direction * speed);
-        transform.LookAt(player.transform.position);
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        transform.Rotate(Vector3.right * speed * Time.deltaTime);
+        
+        transform.LookAt(player.transform.position); //El enemigo busca al jugador
+        transform.Translate(Vector3.forward * speed * Time.deltaTime); //El enemigo está en constante movimiento
+        transform.Rotate(Vector3.right * speed * Time.deltaTime); //El enemigo puede rotar. 
     }
 
    

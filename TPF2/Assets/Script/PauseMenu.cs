@@ -10,10 +10,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     private GameObject OpMenu;
 
-    void Start()
+    /* A continuación este script engloiba todo lo que hace que el menú de Pause pare el juego, lo haga continuar, detecte o no si el ratón debe verse o estar centrado. Basicamente es lo que te permite salir o volver a entrar al juego*/
+
+    void Start() 
     {
         GameIsPaused = false;
-        //OpMenu = GameObject.Find("OptionMenu");
+        
     }
     void Update()
     {
@@ -48,8 +50,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("Option Menu");
-        
-
 
     }
 
