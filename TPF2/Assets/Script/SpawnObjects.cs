@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SpawnObjects : MonoBehaviour
 {
-    public GameObject[] Objects;
+    public GameObject Objects;
     public GameObject[] Positions;
     private float OstartTime = 2f;
-    private float OrepeatRate = 5f;
+    private float OrepeatRate = 50f;
     private float OSpawnLim = 10;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("ObjectPrefab", OstartTime, OrepeatRate);
+        InvokeRepeating("ObjectPrefab", OstartTime, 0);
     }
 
     //Función de Invoke de los Objetos
@@ -21,8 +21,8 @@ public class SpawnObjects : MonoBehaviour
 
         for (int i = 0; i < Positions.Length; i++)
         {
-            Instantiate(Objects[i], Positions[i].transform.position,
-                Objects[i].transform.rotation);
+            Instantiate(Objects, Positions[i].transform.position,
+                Objects.transform.rotation);
             if (i >= OSpawnLim)
             {
                 CancelInvoke("ObjectPrefab");

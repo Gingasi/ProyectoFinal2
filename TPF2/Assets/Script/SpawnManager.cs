@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    
-
 
     public GameObject[] Enemies;
     public GameObject[] Positions;
@@ -30,10 +28,6 @@ public class SpawnManager : MonoBehaviour
                 Enemies[i].transform.rotation);
         }
     }
- 
-   
-
-
 
 }
 

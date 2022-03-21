@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnLife : MonoBehaviour
 {
-    public GameObject[] Lifes;
+    public GameObject Lifes;
     public GameObject[] Positions;
     private float LstartTime = 2f;
     private float LrepeatRate = 5f;
@@ -12,7 +12,7 @@ public class SpawnLife : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("LifePrefab", LstartTime, LrepeatRate);
+        InvokeRepeating("LifePrefab", LstartTime, 0);
     }
 
     //Función de Invoke de la recuperación de vida
@@ -21,8 +21,8 @@ public class SpawnLife : MonoBehaviour
 
         for (int i = 0; i < Positions.Length; i++)
         {
-            Instantiate(Lifes[i], Positions[i].transform.position,
-                Lifes[i].transform.rotation);
+            Instantiate(Lifes, Positions[i].transform.position,
+                Lifes.transform.rotation);
             if (i >= LSpawnLim)
             {
                 CancelInvoke("LifePrefab");

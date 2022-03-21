@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,24 +13,38 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoresText;
     public GameObject gameOverPanel;
     public GameObject WinPanel;
+    private bool IsWin;
+    public int Opoints;
+    public int Epoints;
 
-    public int Objects;
-    public int Enemy;
-    
-   
-    /*A continuación creamos las funciones que haremos que funcionen en otros script pero que controlan el Ui 
-      del canvas que controla el player. La puntuacióny los paneles de winner y loser*/ 
+    void Start()
 
-    public void UpdateObject(int pointToAdd)
     {
-        Objects += pointToAdd;
-        scoreText.text = Objects.ToString();
+
+        Epoints = 19;
+        Opoints = 9;
     }
 
-    public void UpdateEn(int pointToAdd)
+    /*A continuación creamos las funciones que haremos que funcionen en otros script pero que controlan el Ui 
+      del canvas que controla el player. La puntuacióny los paneles de winner y loser*/
+    private void Update()
     {
-        Enemy += pointToAdd;
-        scoresText.text = Enemy.ToString();
+        if (!IsWin && Epoints == 20 && Opoints == 10)
+        {
+            StartCoroutine(YouWin());
+            IsWin = true;
+        }
+    }
+    public void UpdateObject()
+    {
+        Opoints ++;
+        scoreText.text = Opoints.ToString();
+    }
+
+    public void UpdateEn()
+    {
+        Epoints ++;
+        scoresText.text = Epoints.ToString();
     }
 
     public void GameOver()
@@ -42,5 +57,13 @@ public class GameManager : MonoBehaviour
     {
         isWin = true;
         WinPanel.SetActive(true);
+    }
+
+    private IEnumerator YouWin()
+    {
+        Win();
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

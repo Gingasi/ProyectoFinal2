@@ -564,6 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Misil: {fileID: 3956545706807500900, guid: c1fa13bd0ceffe845b7a40d7b5e3678d, type: 3}
   canon: {fileID: 1701251907737904885}
+  Boom: {fileID: 0}
   fum: {fileID: 1273915125232972, guid: 73767e07adddc394d82b994801f89bbb, type: 3}
 --- !u!1 &2799941745051900815
 GameObject:
@@ -1179,8 +1180,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5614696947248683382}
-  m_LocalRotation: {x: -0.81933606, y: -0, z: 0.57331353, w: 0}
-  m_LocalPosition: {x: 1.1, y: 200, z: 0.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 200, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 6214530399110857017}
@@ -1624,7 +1625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6214530399110857023}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -46.6, y: 68.778, z: 78.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2450777540387755546}

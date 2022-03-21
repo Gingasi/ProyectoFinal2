@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 public class DestroyMisil : MonoBehaviour
 {
@@ -11,9 +11,9 @@ public class DestroyMisil : MonoBehaviour
     public PlayerHealth playerhealthscript;
     float countdown;
     public float delay = 2f;
-    public int Opoints;
-    public int Epoints;
-    private bool IsWin;
+    
+    private AudioSource Selecction;
+    public AudioClip Select;
    
 
     //En el start que encuentre todos los script y los puntos con los que se empieza la partida
@@ -24,9 +24,9 @@ public class DestroyMisil : MonoBehaviour
         gameManagerScript = FindObjectOfType<GameManager>();
         playerhealthscript = FindObjectOfType<PlayerHealth>();
         countdown = delay;
+        Selecction = GetComponent<AudioSource>();
 
-        Epoints = 0;
-        Opoints = 0;
+
     }
 
     void Update()
@@ -41,18 +41,14 @@ public class DestroyMisil : MonoBehaviour
 
         }
 
-        if (!IsWin && Epoints == 20)
-        {
-            StartCoroutine(YouWin());
-            IsWin = true;
-        }
+        
     }
     private void OnCollisionEnter(Collision otherCollider)
     {
         if (otherCollider.gameObject.CompareTag("Enemy"))
         {
-            Epoints++;
-            gameManagerScript.UpdateEn(Epoints);
+            
+            gameManagerScript.UpdateEn();
             Explode();
             Destroy(gameObject);
             Destroy(otherCollider.gameObject);
@@ -60,29 +56,25 @@ public class DestroyMisil : MonoBehaviour
 
         if (otherCollider.gameObject.CompareTag("Objetivo"))
         {
-            Opoints++;
-            //gameManagerScript.UpdateObject(Opoints);
+            Selecction.PlayOneShot(Select, 1f);
+           
+            gameManagerScript.UpdateObject();
             Explode();
             Destroy(gameObject);
             Destroy(otherCollider.gameObject);
+            
 
         }
         if (otherCollider.gameObject.CompareTag("Life"))
         {
+            Selecction.PlayOneShot(Select, 1f);
             playerhealthscript.HealDamage(70);
             Destroy(otherCollider.gameObject);
-
         }
     }
 
     //Courrutina de que has ganado
-    private IEnumerator YouWin()
-    {
-        gameManagerScript.Win();
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        Cursor.lockState = CursorLockMode.Confined;
-    }
+    
 
     //Función de particulas para la destrucción de la bala
         void Explode()
